@@ -18,6 +18,14 @@
   <link href="https://daks2k3a4ib2z.cloudfront.net/img/webclip.png" rel="apple-touch-icon">
 </head>
 <body class="body">
+  <script src="assets/js/jquery.min.js"></script>
+<script type="text/javascript">var submitted=false;</script>
+<script type="text/javascript">
+$('#gform').on('submit', function(e) {
+  $('#gform *').fadeOut(2000);
+  $('#gform').prepend('Your submission has been processed...');
+  });
+</script>
   <div class="hero">
     <div data-collapse="medium" data-animation="default" data-duration="400" data-doc-height="1" class="nav w-nav">
       <div class="nav-inner">
@@ -75,7 +83,29 @@
       <h2>Contact Us For More Details</h2>
       <p class="paragraph-2">WE&#x27;LL BE IN TOUCH!</p>
       <div class="form-block w-form">
-        <form id="email-form" name="email-form" data-name="Email Form" class="form-2"><input type="text" class="input w-input" maxlength="256" name="email-2" data-name="Email 2" placeholder="Enter your email" id="email-2" required=""><input type="submit" value="Submit" data-wait="Please wait..." class="button form-button w-button"></form>
+        <form 
+              name="gform" 
+              id="gform" 
+              enctype="text/plain"
+              data-name="Email Form" 
+              class="form-2"
+              action="https://docs.google.com/forms/d/e/1FAIpQLSdZtrvsEf_iX7yds0AFAylCUgt5nYDeYpPF38qe3-HpweR3WA/formResponse?"
+              target="hidden_iframe" 
+              onsubmit="submitted=true;"
+              >
+          <input 
+                 type="text" 
+                 class="input w-input"
+                 maxlength="256" 
+                 name="entry.93819533" 
+                 id="entry.93819533"
+                 data-name="Email 2" 
+                 placeholder="Enter your email" 
+                 required=""
+                 >
+          <input type="submit" value="Submit" data-wait="Please wait..." class="button form-button w-button">
+        </form>
+        <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) {}"></iframe>
         <div class="w-form-done">
           <div>Thank you! Your submission has been received!</div>
         </div>
